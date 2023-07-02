@@ -24,7 +24,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build and tag Docker image
-      run: docker build -t 344320752730.dkr.ecr.eu-central-1.amazonaws.com/devopscourse:latest .
+      run: cd ./dockerimagedeployment && docker build -t 344320752730.dkr.ecr.eu-central-1.amazonaws.com/devopscourse:latest .
 
     - name: Push Docker image to ECR
       run: |
