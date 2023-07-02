@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flasker
+spec:
+  selector:
+    matchLabels:
+      app: flaskerapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flaskerapp
+    spec:
+      containers:
+        - name: flasker
+          image: flasker
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8088
+
