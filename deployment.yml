@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flasker
-          image: flasker
+          image: flasker:latest
           imagePullPolicy: Never
           ports:
           - containerPort: 8088
