@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flasker
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: flaskerapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flaskerapp
+    spec:
+      containers:
+        - name: flasker
+          image: 344320752730.dkr.ecr.eu-central-1.amazonaws.com/devopscourse:latest
+          imagePullPolicy: Always #See the imagePullPolicy options bellow in comments
+          ports:                 
+          - containerPort: 8088
+          env:
+            - name: TZ
+              value: "Asia/Tbilisi"
