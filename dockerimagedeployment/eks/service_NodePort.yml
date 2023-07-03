@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: flaskerapp-svcnp
+  name: flaskerapp-svcnp
+spec:
+  #clusterIP: 10.96.75.104
+  ports:
+  - nodePort: 30171 # Port exposed from any node
+    port: 8080 # Port exposed on the pod level
+    protocol: TCP
+    targetPort: 8088 # Application port in container
+  selector:
+    app: flaskerapp
+  type: NodePort
