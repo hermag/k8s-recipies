@@ -18,6 +18,9 @@ spec:
           imagePullPolicy: Always #See the imagePullPolicy options bellow in comments
           ports:                 
           - containerPort: 8088
+          env:
+            - name: TZ
+              value: "Asia/Tbilisi"
 
 # IfNotPresent
 # the image is pulled only if it is not already present locally.
