@@ -10,3 +10,12 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8088
+
+# Why we need clusterIP if we still can reach the service over the pod IP address and the port?
+# Because, pods can be restarted on different nodes, their IP addresses will be changed (ports of course not!)
+# Therefore, if you will use IP address in your application to reach the service (for example the database), 
+# One restart can destroy this communication, anyways hardcoded IP addresses or any other parameters is not a
+# good idea to communicate with the system which has scaling capabilities. Therefore, once we create the 
+# ClusterIP, we are also creating the DNS record in the K8S DNS system, the coreDNS, which allows us to communicate
+# with an application through the DNS name and not IP address, and this DNS records are automatically updated
+# when the pod restarts. Therefore we don't care where the pod will be running, or what will be it's IP address.
