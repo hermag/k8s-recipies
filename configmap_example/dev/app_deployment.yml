@@ -21,4 +21,7 @@ spec:
           - containerPort: 8088
           env:
             - name: TZ
-              value: "Asia/Tbilisi"
+              valueFrom:
+                configMapKeyRef:
+                  name: flaskerapp-configmap
+                  key: timezone
