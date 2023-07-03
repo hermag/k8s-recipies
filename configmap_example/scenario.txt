@@ -1,0 +1,7 @@
+1. Create two namespaces - prod and dev with corresponding yml files
+2. Create config map in prod environment with one single environment parameter
+3. Create config map in dev environment with one single environment parameter (different from the prod environment)
+4. deploy flaskerapp with config map in prod environment
+5. deploy flaskerapp with config map in dev environment
+6. prod environment should be mapped to the main branch and dev environment should be mapped to the dev branch
+7. pipeline deployes main branch commits to the prod namespace of eks and in dev namespace in case of commits to the dev branch
