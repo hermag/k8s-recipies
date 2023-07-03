@@ -19,3 +19,13 @@ spec:
 # ClusterIP, we are also creating the DNS record in the K8S DNS system, the coreDNS, which allows us to communicate
 # with an application through the DNS name and not IP address, and this DNS records are automatically updated
 # when the pod restarts. Therefore we don't care where the pod will be running, or what will be it's IP address.
+
+# How to test it?!
+# 1. Run the deployment (without service)
+# 2. Deploy the busybox pod in the same namespace
+# 3. Run: kubectl exec --stdin --tty busybox -- /bin/sh
+# 4. Try to ping the deployment (done in step 1) pod IP from busybox
+# 5. Try to telnet the deployment (done in step 1) pod port from the busybox
+# 6. All works right? - now try to ping or/and telnet the pod by it's name, does not work right?
+# 7. Now detach from busybox and deploy the clusterIP 
+# 8. Now attach to the busybox again and try to ping and telnet the service over it's name
