@@ -15,7 +15,7 @@ spec:
       containers:
         - name: flasker
           image: flasker:latest
-          imagePullPolicy: Never #This is needed if you want to pull the local image
-          ports:
-          - containerPort: 8088
+          imagePullPolicy: Never #This is for local image pull, to make local image visible for the minikube
+          ports:                 #we need to build the image using minikube, here is the command for that
+          - containerPort: 8088  # minikube image build -t <image name>:<image tag> . 
 
